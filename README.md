@@ -4,7 +4,7 @@ Use this repository as a starting point to manage a Service Mesh on an OpenShift
 
 ## Getting Started
 
-1. Clone this example repository.
+1. Go to `Use this template > create a new repository` to generate a copy of this repository that you will use to manage your OpenShift cluster.
 
 2. Configure the example ArgoCD `Application` by providing your new repository URL `spec.source.repoURL` in the following files:
 
