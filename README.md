@@ -2,7 +2,7 @@
 
 Use this repository as a starting point to manage a Service Mesh on an OpenShift cluster.
 
-## Getting Started
+## Provisioning the Service Mesh
 
 1. Go to `Use this template > create a new repository` to generate a copy of this repository that you will use to manage your OpenShift cluster.
 
@@ -25,28 +25,28 @@ Use this repository as a starting point to manage a Service Mesh on an OpenShift
     oc apply -k bootstrap/instance
     ```
 
-## Observation
+## Observing ArgoCD Progress
 
 The demo bootstrap initiates a default ArgoCD instance hosted in the `openshift-gitops` namespace. In this namespace a `Route` is deployed which provides a URL to the ArgoCD console.
 
 
-## Onboarding an application to the Service Mesh
+## Onboarding an Application to the Service Mesh
 
-The following sections will describe how to manage applications deployed to the Service Mesh with this GitOps framework.
+The following instructions will describe how to manage applications deployed to the Service Mesh with this GitOps framework.
 
-### Requesting new namepaces
+1. Request new namepaces
 
-New namespaces are added by including their definitions in `servicemesh/overlays/default/namespaces.yaml`. The namespaces `bookinfo-test` and `bookinfo-qa` are commented out there.
+   New namespaces are added by including their definitions in `servicemesh/overlays/default/namespaces.yaml`. The namespaces `bookinfo-test` and `bookinfo-qa` are commented out there. Uncomment those lines 
 
-### Adding namespaces to a ServiceMeshMemberRoll
+2. Add the new namespaces to the ServiceMeshMemberRoll
 
-If you want new namespaces to be included as a member of the mesh. Add them to `servicemesh/overlays/default/servicemeshmemberroll.yaml`
+   Uncomment the `test` and `qa` namespaces in `servicemesh/overlays/default/servicemeshmemberroll.yaml` to include them in the service mesh.
 
-### Adding ArgoCD Applications (bookinfo example)
+3. Add ArgoCD Applications for the bookinfo example
 
-You can define applications in the `apps` directory. Example application definitions are available for the sample bookinfo namespaces. Uncomment the lines in `apps/kustomization.yaml` to deploy those apps.
+   You can define applications in the `apps` directory. Example application definitions are available for the sample bookinfo namespaces. Uncomment the lines in `apps/kustomization.yaml` to deploy those apps.
 
-### Validating the bookinfo example
+## Validating the bookinfo example
 
 Use Kiali to visualize bookinfo traffic:
 
