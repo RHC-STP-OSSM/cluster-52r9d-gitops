@@ -11,7 +11,5 @@ spec:
     path: apps
     repoURL: $REPO_URL
     targetRevision: HEAD
-    directory:
-      recurse: false
   syncPolicy:
     automated: {}
