@@ -11,8 +11,11 @@ Use this repository as a starting point to manage a Service Mesh on an OpenShift
 2. Configure the example ArgoCD `Application` by providing your new repository URL `spec.source.repoURL` in the following files:
 
     ```
+    apps/application-argo-rollouts.yaml
+    apps/application-service-mesh-operators.yaml
+    apps/application-service-mesh-qa.yaml
+    apps/application-service-mesh-test.yaml
     bootstrap/instance/application.yaml
-    apps/application-service-mesh.yaml
     ```
 
 3. Provision the ArgoCD operator:
@@ -130,8 +133,10 @@ The following instructions will describe how to manage applications deployed to 
    ```
    git add .
    git commit -m "bump productpage version"
-   git push origin master
+   git push origin main
    ```
+
+   Note: In a fully operational GitOps environment, you might have a post-commit hook on the `gitops-app-bookinfo` repository to notify ArgoCD to refresh automatically. In a demo scenario, you may just want to manually trigger a refresh of the `bookinfo` application in the ArgoCD UI. This will cause ArgoCD to notice the change and begin the rollout.
 
 4. Observe the rollout which increases traffic to the new application instance 20% at a time, with a 10 second pause between each step. There are many ways to observe rollouts:
 
