@@ -44,15 +44,15 @@ The following instructions will describe how to manage applications deployed to 
 
 3. Request new namespaces for a `test` and `qa` instance of the sample application
 
-   For the `test` instance, edit `servicemesh/overlays/test/namespaces.yaml` and uncomment all lines
+   For the `test` instance, edit `servicemesh/instance/overlays/test/namespaces.yaml` and uncomment all lines
 
-   For the `qa` instance, edit `servicemesh/overlays/qa/namespaces.yaml` and uncomment all lines
+   For the `qa` instance, edit `servicemesh/instance/overlays/qa/namespaces.yaml` and uncomment all lines
 
 4. Add the new namespaces to the ServiceMeshMemberRoll
 
-   For the `test` instance, edit `servicemesh/overlays/test/servicemeshmemberroll.yaml` and uncomment all lines
+   For the `test` instance, edit `servicemesh/instance/overlays/test/servicemeshmemberroll.yaml` and uncomment all lines
 
-   For the `qa` instance, edit `servicemesh/overlays/qa/servicemeshmemberroll.yaml` and uncomment all lines
+   For the `qa` instance, edit `servicemesh/instance/overlays/qa/servicemeshmemberroll.yaml` and uncomment all lines
 
 5. Configure ArgoCD Applications for the bookinfo example
 
@@ -67,7 +67,7 @@ The following instructions will describe how to manage applications deployed to 
    ```
    git add .
    git commit -m "onboard the bookinfo app"
-   git push origin master
+   git push origin main
    ```
 
 ## Validating the bookinfo example in the test environment
